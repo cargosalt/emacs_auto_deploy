@@ -109,6 +109,19 @@ ln -sf "$(pwd)/.emacs.rc" ~/.emacs.rc
 ln -sf "$(pwd)/.emacs.snippets" ~/.emacs.snippets
 echo "    ✅ 软链接已创建。"
 
+
+# ---------- 4.5 交互配置代理 ----------
+echo ""
+echo ">>> [4.5/6] 配置代理..."
+read -p "    请输入代理地址和端口（如 192.168.254.1:7890，直接回车跳过）: " PROXY_INPUT
+
+if [ -n "$PROXY_INPUT" ]; then
+    sed -i "s|192.168.254.1:7890|$PROXY_INPUT|g" ~/dotfiles/.emacs
+    echo "    ✅ 代理已更新为: $PROXY_INPUT"
+else
+    echo "    ⚠️  跳过，保持原配置不变"
+fi
+
 # ---------- 5. 验证 ----------
 echo ""
 echo ">>> [5/6] 验证部署结果..."
