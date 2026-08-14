@@ -80,8 +80,8 @@ echo ""
 echo ">>> [3/6] 解压配置文件..."
 
 ZIP_SRC=""
-if [ -f ~/emacs_auto_deploy-main/emacs-config.zip ]; then
-    ZIP_SRC=~/emacs_auto_deploy-main/emacs-config.zip
+if [ -f ~/emacs_auto_deploy/emacs-config.zip ]; then
+    ZIP_SRC=~/emacs_auto_deploy/emacs-config.zip
 elif [ -f ~/dotfiles/emacs-config.zip ]; then
     ZIP_SRC=~/dotfiles/emacs-config.zip
 elif ls ~/*.zip 1>/dev/null 2>&1; then
@@ -90,7 +90,7 @@ fi
 
 if [ -z "$ZIP_SRC" ]; then
     echo "    ❌ 错误：找不到 emacs-config.zip！"
-    echo "       请先把它放到 ~/emacs_auto_deploy-main/ 或 ~/dotfiles/ 下"
+    echo "       请先把它放到 ~/emacs_auto_deploy/ 或 ~/dotfiles/ 下"
     exit 1
 fi
 
